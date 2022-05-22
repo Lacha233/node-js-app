@@ -13,6 +13,13 @@ pipeline {
       }
     }
 
+    stage('Build') {
+      steps {
+        sh '''echo \'Build successfull for Linux platform.\'
+'''
+      }
+    }
+
   }
   environment {
     ANSIBLE_CONFIG = '/opt/kickstart-ansible/ansible.cfg'
