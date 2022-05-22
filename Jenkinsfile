@@ -14,9 +14,21 @@ pipeline {
     }
 
     stage('Build') {
-      steps {
-        sh '''echo \'Build successfull for Linux platform.\'
+      parallel {
+        stage('Build/Linux') {
+          steps {
+            sh '''echo \'Build successfull for Linux platform.\'
 '''
+          }
+        }
+
+        stage('Build/Windows') {
+          steps {
+            sh '''echo \'Build successful for Windows platform.\'
+'''
+          }
+        }
+
       }
     }
 
